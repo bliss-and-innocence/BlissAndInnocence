@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { people } from '../../data/people';
+import { releases } from '../../data/releases';
 
 export function getStaticPaths() {
   return people.map((member) => ({
@@ -14,27 +15,95 @@ const member = people.find((entry) => entry.slug === slug);
 if (!member) {
   throw new Error(`Member not found for slug: ${slug}`);
 }
+
+const slugify = (value: string) =>
+  value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '') || 'person';
+
+const matchesMemberName = (name?: string) => {
+  if (!name || !name.trim()) return false;
+  const target = name.trim();
+  return (
+    member.slug === target ||
+    member.slug === slugify(target) ||
+    member.name.trim().toLowerCase() === target.toLowerCase() ||
+    slugify(member.name) === slugify(target)
+  );
+};
+
+const contributedReleases = releases.filter((release) => {
+  if (Array.isArray(release.credits) && release.credits.some((c) => typeof c.name === 'string' && matchesMemberName(c.name))) {
+    return true;
+  }
+
+  if (Array.isArray(release.tracks)) {
+    for (const t of release.tracks) {
+      if (Array.isArray(t.artists) && t.artists.some((a) => typeof a === 'string' && matchesMemberName(a))) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+});
+
+const socialIconMap: Record<string, string> = {
+  x: '/social media/x.svg',
+  youtube: '/social media/youtube.svg',
+  carrd: '/social media/carrd.svg',
+  linktree: '/social media/linktree.svg',
+  bandcamp: '/social media/bandcamp.webp',
+  vgen: '/social media/vgen.svg',
+  weebly: '/social media/weebly.svg',
+  github: '/social media/github.svg',
+  portfolio: '/social media/portfolio.svg',
+};
+
+const socialLinks = (member.links ?? []).filter((link) => {
+  const platform = typeof link.platform === 'string' ? link.platform.toLowerCase() : '';
+  return !!link.url && !!socialIconMap[platform];
+});
 ---
 
 <Layout>
   <main class="profile-page">
-    <h1>{member.name}</h1>
-    <p><strong>{(member.roles ?? []).join(' / ') || 'No roles listed'}</strong></p>
-    <div>
-      {member.links && member.links.length > 0 ? (
-        <ul>
-          {member.links.map((link) => (
-            <li>
-              <a href={link.url} target="_blank" rel="noreferrer">
-                {link.platform || 'Link'}
+    <div class="name-row">
+      <h1>{member.name}</h1>
+
+      {socialLinks.length > 0 ? (
+        <div class="social-icons" aria-label={`${member.name} social links`}>
+          {socialLinks.map((link) => {
+            const platform = typeof link.platform === 'string' ? link.platform.toLowerCase() : 'link';
+            const iconSrc = socialIconMap[platform] ?? '/social media/portfolio.svg';
+            const altText = platform || 'Social link';
+
+            return (
+              <a href={link.url} target="_blank" rel="noreferrer" aria-label={altText} class="social-icon">
+                <img src={iconSrc} alt={altText} />
               </a>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No socials listed.</p>
-      )}
+            );
+          })}
+        </div>
+      ) : null}
     </div>
+
+    <p><strong>{(member.roles ?? []).join(' / ') || 'No roles listed'}</strong></p>
+
+    {contributedReleases && contributedReleases.length > 0 ? (
+      <section class="appears-on">
+        <h2>Appears on</h2>
+        <div class="appear-grid">
+          {contributedReleases.map((rel) => (
+            <a class="appear-card" href={`/releases/${rel.slug}`}>
+              <img src={`/releases/${rel.slug}/cover.jpg`} alt={`${rel.title} cover`} />
+            </a>
+          ))}
+        </div>
+      </section>
+    ) : null}
   </main>
 </Layout>
 
@@ -45,11 +114,88 @@ if (!member) {
     padding: 32px 24px 64px;
   }
 
-  .profile-page h1 {
+  .name-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  .profile-page h1 {
+    margin: 0;
+  }
+
+  .social-icons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: 4px;
+  }
+
+  .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .social-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .profile-page ul {
     padding-left: 20px;
+  }
+
+  .appears-on {
+    margin-top: 28px;
+  }
+
+  .appears-on h2 {
+    margin: 0 0 12px;
+    font-size: 1.1rem;
+  }
+
+  .appear-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 120px));
+    gap: 12px;
+    justify-content: start;
+    align-items: start;
+  }
+
+  .appear-card {
+    display: block;
+    width: 120px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: rgba(17,17,17,0.04);
+    border: 1px solid rgba(17,17,17,0.06);
+    text-decoration: none;
+  }
+
+  .appear-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 640px) {
+    .appear-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .appear-card {
+      width: 100%;
+    }
   }
 </style>
