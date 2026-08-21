@@ -83,15 +83,29 @@
 			let warningTimer: number | undefined;
 			let hideTimer: number | undefined;
 
-			if (loader && !document.documentElement.classList.contains('loader-hidden')) {
-				const delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 500 : 2600;
+			const hideLoader = () => {
+				if (!loader) {
+					return;
+				}
 
-				window.addEventListener('load', () => {
-					setTimeout(() => {
-						loader.classList.add('is-hidden');
-						document.documentElement.classList.add('loader-hidden');
-					}, delay);
-				}, { once: true });
+				loader.classList.add('is-hidden');
+				document.documentElement.classList.add('loader-hidden');
+			};
+
+			if (loader && !document.documentElement.classList.contains('loader-hidden')) {
+				const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+				const delay = reducedMotion ? 500 : 2600;
+				const fallbackDelay = reducedMotion ? 1200 : 4200;
+
+				if (document.readyState === 'complete') {
+					window.setTimeout(hideLoader, delay);
+				} else {
+					window.addEventListener('load', () => {
+						window.setTimeout(hideLoader, delay);
+					}, { once: true });
+				}
+
+				window.setTimeout(hideLoader, fallbackDelay);
 			}
 
 			if (submissionsLink && submissionToast) {
