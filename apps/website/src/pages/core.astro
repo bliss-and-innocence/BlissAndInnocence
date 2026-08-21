@@ -40,34 +40,38 @@ const categories = Array.from(
 
 <Layout>
   <main class="team-page">
-    <div class="page-header">
-      <h1>Core Members</h1>
+    <div class="team-content">
+      <h1>
+        <span class="title-decoration">//// </span>
+        Core Members
+        <span class="title-decoration"> ////</span>
+      </h1>
+
+      {categories.map((category) => {
+        const categoryMembers = members.filter((person) => (person.roles ?? []).includes(category));
+
+        return (
+            <section class="team-category">
+              <h2>{category}</h2>
+              <div class="member-grid">
+                {categoryMembers.map((member) => (
+                    <a class="member-card" href={`/team/${member.slug}`}>
+                      <div class="card-image" aria-label={`${member.name} profile picture`}>
+                        <img
+                            src={getMemberImageSrc(member)}
+                            alt={`${member.name} profile picture`}
+                        />
+                      </div>
+                      <div class="card-text">
+                        <span>{member.name}</span>
+                      </div>
+                    </a>
+                ))}
+              </div>
+            </section>
+        );
+      })}
     </div>
-
-    {categories.map((category) => {
-      const categoryMembers = members.filter((person) => (person.roles ?? []).includes(category));
-
-      return (
-        <section class="team-category">
-          <h2>{category}</h2>
-          <div class="member-grid">
-            {categoryMembers.map((member) => (
-              <a class="member-card" href={`/team/${member.slug}`}>
-                <div class="card-image" aria-label={`${member.name} profile picture`}>
-                  <img
-                    src={getMemberImageSrc(member)}
-                    alt={`${member.name} profile picture`}
-                  />
-                </div>
-                <div class="card-text">
-                  <span>{member.name}</span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-      );
-    })}
   </main>
 </Layout>
 
@@ -85,48 +89,51 @@ const categories = Array.from(
 
 <style>
   .team-page {
-    width: min(100%, 1200px);
+    width: 100%;
+    max-width: 1200px;
+    margin: 4.5rem auto;
+    padding: 64px 24px 96px;
+    box-sizing: border-box;
+  }
+
+  .team-content {
+    width: 100%;
+    max-width: 1120px;
     margin: 0 auto;
-    padding: 32px 24px 64px;
   }
 
-  .page-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 32px;
+  /* Page title */
+  .team-page h1 {
+    width: 100%;
+    margin: 0 0 150px;
+    padding: 0;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: lighter;
   }
 
-  .page-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-  }
-
-  .page-header a {
-    color: inherit;
-    text-decoration: none;
-    font-weight: 600;
-  }
-
+  /* Category */
   .team-category {
-    margin-bottom: 40px;
+    margin: 0 0 64px;
   }
 
   .team-category h2 {
-    margin: 0 0 16px;
-    font-size: 1.3rem;
+    margin: 0 0 24px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 300;
+    font-style: italic;
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
 
+  /* Members */
   .member-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 180px));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 180px);
+    gap: 24px 20px;
+    justify-content: center;
     align-items: start;
-    justify-content: start;
-    justify-items: start;
   }
 
   .member-card {
@@ -137,7 +144,6 @@ const categories = Array.from(
     text-decoration: none;
     background: transparent;
     border: none;
-    border-radius: 0;
     overflow: hidden;
     transition: transform 0.2s ease;
   }
@@ -162,40 +168,55 @@ const categories = Array.from(
   }
 
   .card-text {
-    padding: 6px 8px 10px;
-    font-weight: 600;
-    min-height: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 8px 4px 10px;
+    font-size: 0.9rem;
+    font-weight: 300;
+    font-style: italic;
     text-align: center;
     background: transparent;
   }
 
+  /* Mobile */
   @media (max-width: 640px) {
     .team-page {
-      padding-left: 16px;
-      padding-right: 16px;
+      margin: 2rem auto;
+      padding: 32px 16px 64px;
     }
 
-    .page-header {
-      flex-direction: column;
-      align-items: flex-start;
+    .team-content {
+      width: 100%;
+    }
+
+    .title-decoration {
+      display: none;
+    }
+
+    .team-page h1 {
+      width: 100%;
+      margin: 0 0 100px;
+      font-size: 1.25rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .team-category {
+      margin-bottom: 52px;
+    }
+
+    .team-category h2 {
       margin-bottom: 20px;
-    }
-
-    .page-header h1 {
-      font-size: 2rem;
+      font-size: 0.9rem;
     }
 
     .member-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 160px));
+      gap: 20px 12px;
+      max-width: 340px;
+      margin: 0 auto;
     }
 
     .member-card {
-      width: 100%;
-      max-width: 160px;
+      width: 160px;
     }
   }
 </style>
