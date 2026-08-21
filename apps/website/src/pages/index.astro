@@ -28,7 +28,7 @@ import { releases } from '../data/releases';
 
 <style>
   .releases-page {
-    max-width: 1200px;
+    width: min(100%, 1200px);
     margin: 0 auto;
     padding: 32px 24px 64px;
   }
@@ -40,15 +40,18 @@ import { releases } from '../data/releases';
 
   .release-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 360px);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 360px));
     gap: 20px;
     align-items: start;
+    justify-content: center;
+    justify-items: center;
   }
 
   .release-card {
     display: flex;
     flex-direction: column;
-    width: 360px;
+    width: 100%;
+    max-width: 360px;
     height: 360px;
     color: inherit;
     text-decoration: none;
@@ -83,5 +86,29 @@ import { releases } from '../data/releases';
     min-height: 56px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  @media (max-width: 640px) {
+    .releases-page {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .releases-page h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .release-grid {
+      grid-template-columns: 1fr;
+      justify-items: stretch;
+    }
+
+    .release-card {
+      width: 100%;
+      max-width: 360px;
+    }
   }
 </style>

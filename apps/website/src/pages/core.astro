@@ -57,7 +57,6 @@ const categories = Array.from(
                   <img
                     src={getMemberImageSrc(member)}
                     alt={`${member.name} profile picture`}
-                    onerror="this.style.display='none'"
                   />
                 </div>
                 <div class="card-text">
@@ -72,9 +71,21 @@ const categories = Array.from(
   </main>
 </Layout>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll<HTMLImageElement>('.member-card img');
+
+    images.forEach((img) => {
+      img.addEventListener('error', () => {
+        img.style.display = 'none';
+      });
+    });
+  });
+</script>
+
 <style>
   .team-page {
-    max-width: 1200px;
+    width: min(100%, 1200px);
     margin: 0 auto;
     padding: 32px 24px 64px;
   }
@@ -111,9 +122,11 @@ const categories = Array.from(
 
   .member-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 180px);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 180px));
     gap: 20px;
     align-items: start;
+    justify-content: start;
+    justify-items: start;
   }
 
   .member-card {
@@ -157,5 +170,32 @@ const categories = Array.from(
     justify-content: center;
     text-align: center;
     background: transparent;
+  }
+
+  @media (max-width: 640px) {
+    .team-page {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .page-header {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+    }
+
+    .member-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .member-card {
+      width: 100%;
+      max-width: 160px;
+    }
   }
 </style>
