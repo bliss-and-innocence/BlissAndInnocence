@@ -1,0 +1,10 @@
+name: ByStarStruck
+roles:
+  - Music Artist
+  - XFade Video Editor
+links:
+  - platform: x
+    url: https://x.com/PBystarstruck
+  - platform: carrd
+    url: https://bystarstruck.carrd.co/
+status: core

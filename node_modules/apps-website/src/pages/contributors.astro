@@ -1,0 +1,162 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { people } from '../data/people';
+
+const categoryOrder = [
+  'Founder',
+  'Cover Artist',
+  'Mastering Engineer',
+  'XFade Audio Engineer',
+  'XFade Video Editor',
+  'Graphic Designer',
+  'Music Artist',
+  'Website Developer',
+];
+
+const members = people.filter((person) => person.status === 'contributor');
+const getMemberImageSrc = (member) => `/people/pfp/${member.slug}.webp`;
+
+const categories = Array.from(
+  new Set(members.flatMap((person) => person.roles ?? [])),
+).sort((a, b) => {
+  const aIndex = categoryOrder.indexOf(a);
+  const bIndex = categoryOrder.indexOf(b);
+
+  if (aIndex !== -1 && bIndex !== -1) {
+    return aIndex - bIndex;
+  }
+
+  if (aIndex !== -1) {
+    return -1;
+  }
+
+  if (bIndex !== -1) {
+    return 1;
+  }
+
+  return a.localeCompare(b);
+});
+---
+
+<Layout>
+  <main class="team-page">
+    <div class="page-header">
+      <h1>Contributors</h1>
+      <a href="/core">Back to Team</a>
+    </div>
+
+    {categories.map((category) => {
+      const categoryMembers = members.filter((person) => (person.roles ?? []).includes(category));
+
+      return (
+        <section class="team-category">
+          <h2>{category}</h2>
+          <div class="member-grid">
+            {categoryMembers.map((member) => (
+              <a class="member-card" href={`/team/${member.slug}`}>
+                <div class="card-image" aria-label={`${member.name} profile picture`}>
+                  <img
+                    src={getMemberImageSrc(member)}
+                    alt={`${member.name} profile picture`}
+                    onerror="this.style.display='none'"
+                  />
+                </div>
+                <div class="card-text">
+                  <span>{member.name}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      );
+    })}
+  </main>
+</Layout>
+
+<style>
+  .team-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+  }
+
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .page-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+
+  .page-header a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .team-category {
+    margin-bottom: 40px;
+  }
+
+  .team-category h2 {
+    margin: 0 0 16px;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .member-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 180px);
+    gap: 20px;
+    align-items: start;
+  }
+
+  .member-card {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    color: inherit;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+
+  .member-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .card-image {
+    width: 100%;
+    aspect-ratio: 1;
+    background: rgba(17, 17, 17, 0.08);
+    overflow: hidden;
+  }
+
+  .card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: rgba(17, 17, 17, 0.08);
+  }
+
+  .card-text {
+    padding: 6px 8px 10px;
+    font-weight: 600;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: transparent;
+  }
+</style>

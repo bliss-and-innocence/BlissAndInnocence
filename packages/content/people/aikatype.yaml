@@ -1,0 +1,9 @@
+name: AIKATYPE
+roles:
+  - Music Artist
+links:
+  - platform: x
+    url: https://x.com/aikatype
+  - platform: soundcloud
+    url: https://soundcloud.com/aikatype
+status: contributor

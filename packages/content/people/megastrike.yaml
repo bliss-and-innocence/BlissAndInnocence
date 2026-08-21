@@ -1,0 +1,9 @@
+name: MegaStrike
+roles:
+  - Music Artist
+links:
+  - platform: x
+    url: https://x.com/megastrikeultra
+  - platform: youtube
+    url: https://www.youtube.com/c/MegaStrike
+status: contributor

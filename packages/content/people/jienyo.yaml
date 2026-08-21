@@ -1,0 +1,9 @@
+name: Jienyo
+roles:
+  - Music Artist
+links:
+  - platform: x
+    url: https://x.com/jien_yo
+  - platform: bandcamp
+    url: https://jienyo.bandcamp.com/music
+status: contributor

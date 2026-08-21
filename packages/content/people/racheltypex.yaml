@@ -1,0 +1,7 @@
+name: RachelTypeX
+roles:
+    - Music Artist
+links:
+    - platform: bandcamp
+      url: https://racheltypex.bandcamp.com/
+status: core

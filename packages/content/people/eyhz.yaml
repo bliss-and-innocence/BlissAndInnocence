@@ -1,0 +1,13 @@
+name: Eyhz
+roles:
+  - Music Artist
+  - Cover Artist
+  - Mastering Engineer
+  - XFade Video Editor
+  - Founder
+links:
+    - platform: x
+      url: https://x.com/Eyhz6
+    - platform: bandcamp
+      url: https://eyhz.bandcamp.com/
+status: core

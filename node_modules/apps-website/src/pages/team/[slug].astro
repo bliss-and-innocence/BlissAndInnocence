@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { people } from '../../data/people';
+
+export function getStaticPaths() {
+  return people.map((member) => ({
+    params: { slug: member.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const member = people.find((entry) => entry.slug === slug);
+
+if (!member) {
+  throw new Error(`Member not found for slug: ${slug}`);
+}
+---
+
+<Layout>
+  <main class="profile-page">
+    <h1>{member.name}</h1>
+    <p><strong>{(member.roles ?? []).join(' / ') || 'No roles listed'}</strong></p>
+    <div>
+      {member.links && member.links.length > 0 ? (
+        <ul>
+          {member.links.map((link) => (
+            <li>
+              <a href={link.url} target="_blank" rel="noreferrer">
+                {link.platform || 'Link'}
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No socials listed.</p>
+      )}
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .profile-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+  }
+
+  .profile-page h1 {
+    margin-bottom: 8px;
+  }
+
+  .profile-page ul {
+    padding-left: 20px;
+  }
+</style>

@@ -1,0 +1,9 @@
+name: Altermis
+roles:
+  - Music Artist
+links:
+  - platform: x
+    url: https://x.com/Kai_Altermis
+  - platform: bandcamp
+    url: https://altermis.bandcamp.com/track/u-i
+status: contributor

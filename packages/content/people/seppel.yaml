@@ -1,0 +1,9 @@
+name: Seppel
+roles:
+  - Music Artist
+links:
+  - platform: x
+    url: https://x.com/scarletsius
+  - platform: bandcamp
+    url: https://sleeplesssctrs.bandcamp.com/
+status: contributor

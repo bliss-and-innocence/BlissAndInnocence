@@ -1,0 +1,10 @@
+name: Raphtalix
+roles:
+  - Music Artist
+  - XFade Audio Engineer
+links:
+    - platform: x
+      url: https://x.com/raphtalix
+    - platform: bio
+      url: https://bio.link/raphtalix
+status: contributor

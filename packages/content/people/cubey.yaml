@@ -1,0 +1,9 @@
+name: Cubey
+roles:
+  - Music Artist
+links:
+    - platform: x
+      url: https://x.com/CubeyThePenguin
+    - platform: linktree
+      url: https://linktr.ee/cubeythepenguin
+status: contributor

@@ -1,0 +1,11 @@
+name: VTQ
+roles:
+  - Music Artist
+links:
+    - platform: x
+      url: https://x.com/volumetrique
+    - platform: portfolio
+      url: https://volumetrique.live/portfolio
+    - platform: bandcamp
+      url: https://volumetrique.bandcamp.com/
+status: contributor

@@ -1,0 +1,93 @@
+title: DARK ROOM EP
+slug: dark-room-ep
+releaseDate: 2023-12-04
+catalogNumber: BAIE-0001
+links:
+  - platform: bandcamp
+    url: https://blissandinnocence.bandcamp.com/album/dark-room-ep
+description: |
+  A techno Ep produced over multiple months.
+
+  It features multiple styles of techno, from minimal calming tracks to mainstage techno with sweeping basses and hard hitting grooves.
+
+  It also contains 2 remixes by the amazing artists AIKATYPE & Violet Delta.
+
+  We also had the help of the amazing mastering engineers at phantoms records (limited run) who did a great job at making this entire ep sounds amazing.
+credits:
+  - role: Composition, Arrangement and Production
+    name: eyhz
+    links:
+      - platform: x
+        url: https://twitter.com/Eyhz6
+      - platform: youtube
+        url: https://www.youtube.com/@EyhzOfficial
+  - role: Mastering
+    name: Phantoms Records (Limited Run)
+    links:
+      - platform: x
+        url: https://twitter.com/PhantomsRecords
+  - role: Cover Art
+    name: Riley // BEACHGRAVE
+    links:
+      - platform: x
+        url: https://twitter.com/gravehead666
+      - platform: x
+        url: https://twitter.com/Catgirlgrave666
+tracks:
+  - title: Outlines
+    duration: "6:37"
+    artists:
+      - eyhz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/outlines
+  - title: Smooth Waves
+    duration: "5:12"
+    artists:
+      - eyhz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/smooth-waves
+  - title: Dark Room
+    duration: "4:10"
+    artists:
+      - eyhz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/dark-room
+  - title: Horizon Busters
+    duration: "5:38"
+    artists:
+      - eyhz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/horizon-busters
+  - title: Masaru
+    duration: "4:56"
+    artists:
+      - eyhz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/masaru
+  - title: Plastic Waste
+    duration: "6:27"
+    artists:
+      - eyhz
+      - aikatype
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/plastic-waste
+  - title: Smooth Waves (AIKATYPE Remix)
+    duration: "4:51"
+    artists:
+      - aikatype
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/smooth-waves-aikatype-remix
+  - title: Dark Room (Violet Delta Remix)
+    duration: "6:58"
+    artists:
+      - violet-delta
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/dark-room-violet-delta-remix

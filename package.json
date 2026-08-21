@@ -1,0 +1,16 @@
+{
+  "name": "blissandinnocence",
+  "version": "1.0.0",
+  "description": "portfolio website for music label bliss&innocence",
+  "main": "index.js",
+  "private" : true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm run dev --workspace=apps/website"
+  },
+  "author": "Himada",
+  "license": "ISC"
+}

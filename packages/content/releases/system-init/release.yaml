@@ -1,0 +1,124 @@
+title: System Init
+slug: system-init
+releaseDate: 2025-09-25
+catalogNumber: XDR-0001
+
+links:
+  - platform: bandcamp
+    url: https://blissandinnocence.bandcamp.com/album/system-init
+
+description: |
+  The first release of B&I's Techno sublabel: Xenodigit Records
+
+  For this first release we let artists create a techno track in their prefered style of techno!
+
+credits:
+  - role: Cover Art
+    name: eyhz
+  - role: Mastering
+    name: eyhz
+  - role: Xfade Mix
+    name: raphtalix
+  - role: Xfade Video
+    name: bystarstruck
+    links:
+      - platform: x
+        url: https://x.com/PByStarStruck
+
+tracks:
+  - title: DESIRE
+    duration: "3:43"
+    artists:
+      - wokah
+      - xelestial
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/desire
+
+  - title: Crawling Out Of Hell
+    duration: "5:42"
+    artists:
+      - angelwhisper
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/crawling-out-of-hell
+
+  - title: Bewolkt
+    duration: "5:35"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/bewolkt
+
+  - title: All You Are
+    duration: "6:39"
+    artists:
+      - voices-of-megatech
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/all-you-are
+
+  - title: Fragile Ego
+    duration: "3:23"
+    artists:
+      - nanio
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/fragile-ego
+
+  - title: False Pretenses
+    duration: "3:43"
+    artists:
+      - racheltypex
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/false-pretenses
+
+  - title: Prolite
+    duration: "3:58"
+    artists:
+      - wokah
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/prolite
+
+  - title: Unborn Flows
+    duration: "6:36"
+    artists:
+      - eyhz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/unborn-flows
+
+  - title: As Seen Before
+    duration: "5:15"
+    artists:
+      - 地球の出
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/as-seen-before
+
+  - title: Above It All
+    duration: "8:15"
+    artists:
+      - all-she-was
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/above-it-all
+
+  - title: Silenced Voice
+    duration: "7:16"
+    artists:
+      - seppel
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/silenced-voice
+
+  - title: blade inside my heart
+    duration: "5:48"
+    artists:
+      - raphtalix
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/blade-inside-my-heart

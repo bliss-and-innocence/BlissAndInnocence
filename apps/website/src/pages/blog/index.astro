@@ -1,0 +1,85 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { blogPosts } from '../../data/blog';
+
+const posts = [...blogPosts].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+);
+---
+
+<Layout>
+  <main class="blog-page">
+    <h1>Blog</h1>
+
+    <div class="blog-list">
+      {posts.map((post) => (
+        <article class="blog-post">
+          <div class="blog-header">
+            <span class="blog-date">{post.date}</span>
+            <h2>{post.title}</h2>
+          </div>
+
+          {post.announcer ? <p class="blog-announcer">{post.announcer}</p> : null}
+          {post.message ? <p class="blog-preview">{post.message}</p> : null}
+        </article>
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .blog-page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+  }
+
+  .blog-page h1 {
+    margin: 0 0 24px;
+    font-size: 2.5rem;
+  }
+
+  .blog-list {
+    display: grid;
+    gap: 0;
+  }
+
+  .blog-post {
+    padding: 22px 0;
+    border-top: 1px solid rgba(17, 17, 17, 0.18);
+  }
+
+  .blog-post:last-child {
+    border-bottom: 1px solid rgba(17, 17, 17, 0.18);
+  }
+
+  .blog-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .blog-date {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .blog-post h2 {
+    margin: 0;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+  }
+
+  .blog-announcer {
+    margin: 10px 0 8px;
+    font-weight: 600;
+  }
+
+  .blog-preview {
+    margin: 0;
+    line-height: 1.7;
+    opacity: 0.8;
+  }
+</style>

@@ -1,0 +1,119 @@
+title: Synthetic Protocol
+slug: synthetic-protocol
+releaseDate: 2025-10-24
+catalogNumber: BAIC-0003
+
+links:
+  - platform: bandcamp
+    url: https://blissandinnocence.bandcamp.com/album/synthetic-protocol
+
+description: |
+  Released after a way to long delay, B&I brings the 3rd album in their genre compilation works project, whit this time around the theme being trance!
+
+credits:
+  - role: Art
+    name: eyhz
+  - role: Mastering
+    name: eyhz
+  - role: Xfade
+    name: raphtalix
+  - role: Xfade Video
+    name: bystarstruck
+
+tracks:
+  - title: Apelpisia
+    duration: "3:47"
+    artists:
+      - bystarstruck
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/apelpisia
+
+  - title: neo aether
+    duration: "5:07"
+    artists:
+      - altermis
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/neo-aether
+
+  - title: Aetherstep
+    duration: "4:38"
+    artists:
+      - hima
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/aetherstep
+
+  - title: Nightwave Fragment
+    duration: "4:22"
+    artists:
+      - racheltypex
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/nightwave-fragment
+
+  - title: Z.F Forgiven (2K25 Remaster)
+    duration: "5:03"
+    artists:
+      - eyhz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/z-f-forgiven-2k25-remaster
+
+  - title: Becoming One
+    duration: "6:59"
+    artists:
+      - vtq
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/becoming-one
+
+  - title: High In Arp
+    duration: "2:34"
+    artists:
+      - wokah
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/high-in-arp
+
+  - title: ELEVATE
+    duration: "3:37"
+    artists:
+      - xelestial
+      - afriendlightz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/elevate
+
+  - title: Unraveling Absence
+    duration: "4:28"
+    artists:
+      - bystarstruck
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/unraveling-absence
+
+  - title: industrial culture
+    duration: "4:36"
+    artists:
+      - air
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/industrial-culture
+
+  - title: The Sound Of The Light
+    duration: "3:13"
+    artists:
+      - cat-destroyer
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/the-sound-of-the-light
+
+  - title: Draft Pick
+    duration: "6:09"
+    artists:
+      - seppel
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/draft-pick

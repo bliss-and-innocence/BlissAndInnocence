@@ -1,0 +1,110 @@
+title: Overlook
+slug: overlook
+releaseDate: 2024-07-17
+catalogNumber: BAIE-0002
+
+links:
+  - platform: bandcamp
+    url: https://blissandinnocence.bandcamp.com/album/overlook
+
+description: |
+  Technically the first release by Eyhz under the techno only alias "Isobarikz".
+
+  This album is a selection of tracks made in order to practice mixing techno.
+  It has a focus on repetition and slowly adding and subtracking elements whilst keeping an ongoing groove so its good for easy listening such as studying or doing chores.
+
+  Expect more Albums like this in the future whilst the Isobarikz project continues to expand into more high quality works
+
+credits:
+  - role: Composition, Arrangement and Production
+    name: isobarikz
+    links:
+      - platform: x
+        url: https://twitter.com/Eyhz6
+      - platform: youtube
+        url: https://www.youtube.com/@EyhzOfficial
+  - role: Mastering
+    name: eyhz
+  - role: Cover Art
+    name: eyhz
+
+tracks:
+  - title: Prospect
+    duration: "7:16"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/prospect
+
+  - title: departure
+    duration: "7:02"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/departure
+
+  - title: attraction
+    duration: "7:20"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/attraction
+
+  - title: frame
+    duration: "7:33"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/frame
+
+  - title: estimate
+    duration: "7:23"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/estimate
+
+  - title: artificial
+    duration: "7:10"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/artificial
+
+  - title: safety
+    duration: "7:33"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/safety
+
+  - title: twitch
+    duration: "7:39"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/twitch
+
+  - title: overlook
+    duration: "7:39"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/overlook
+
+  - title: vegetation
+    duration: "6:55"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/vegetation

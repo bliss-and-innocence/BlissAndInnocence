@@ -1,0 +1,7 @@
+name: WOKAH
+roles:
+  - Music Artist
+links:
+  - platform: bandcamp
+    url: https://wokah.bandcamp.com/
+status: contributor

@@ -1,0 +1,7 @@
+name: cusi
+roles:
+  - Music Artist
+links:
+  - platform: x
+    url: https://x.com/CusiMusic
+status: core

@@ -1,0 +1,9 @@
+name: Air
+roles:
+  - Music Artist
+links:
+  - platform: x
+    url: https://x.com/airhailo
+  - platform: youtube
+    url: https://www.youtube.com/@airhailo
+status: contributor

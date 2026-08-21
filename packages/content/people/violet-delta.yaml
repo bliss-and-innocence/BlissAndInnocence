@@ -1,0 +1,11 @@
+name: Violet Delta
+roles:
+  - Music Artist
+links:
+  - platform: bandcamp
+    url: https://violetdelta.bandcamp.com/album/neon-capital
+  - platform: youtube
+    url: https://www.youtube.com/c/VioletDelta2
+  - platform: x
+    url: https://x.com/violet_delta
+status: contributor

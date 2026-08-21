@@ -1,0 +1,33 @@
+title: Wake Up
+slug: wake-up
+releaseDate: 2022-09-29
+catalogNumber: BAIR-0001
+links:
+  - platform: bandcamp
+    url: https://blissandinnocence.bandcamp.com/album/wake-up
+  - platform: spotify
+    url: https://open.spotify.com/album/4h1zfsWHOdrt07sfjZYLK1?si=QkI6B1OlSPmtU9-yLmks1A
+description: |
+  A small EP to give you a taste of the future
+tracks:
+  - title: Sleepless
+    duration: "10:34"
+    artists:
+      - chikyu-no-de
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/sleepless
+  - title: Wake Up
+    duration: "6:19"
+    artists:
+      - chikyu-no-de
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/wake-up
+  - title: Tomorrow
+    duration: "5:37"
+    artists:
+      - chikyu-no-de
+    links:
+      - platform: bandcamp
+        url: https://blissandinnocence.bandcamp.com/track/tomorrow
