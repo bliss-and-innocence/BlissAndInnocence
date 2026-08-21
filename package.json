@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "portfolio website for music label bliss&innocence",
   "main": "index.js",
-  "private" : true,
+  "private": true,
   "workspaces": [
     "apps/*"
   ],
@@ -14,5 +14,8 @@
     "preview": "npm run preview --workspace=apps/website"
   },
   "author": "Himada",
-  "license": "ISC"
+  "license": "ISC",
+  "allowScripts": {
+    "esbuild": true
+  }
 }
