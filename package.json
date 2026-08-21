@@ -9,7 +9,9 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run dev --workspace=apps/website"
+    "dev": "npm run dev --workspace=apps/website",
+    "build": "npm run build --workspace=apps/website",
+    "preview": "npm run preview --workspace=apps/website"
   },
   "author": "Himada",
   "license": "ISC"
