@@ -1,3 +1,28 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+	url?: string;
+}
+
+const {
+	title = 'Bliss & Innocence',
+	description = 'Bliss & Innocence — music, releases, artists, and more.',
+	image = '/B&I-logo.jpg',
+	url = '/',
+} = Astro.props;
+
+const siteUrl = 'https://blissandinnocence.art';
+
+const absoluteImageUrl = image.startsWith('http')
+	? image
+	: `${siteUrl}${image}`;
+
+const absolutePageUrl = url.startsWith('http')
+	? url
+	: `${siteUrl}${url}`;
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -7,18 +32,19 @@
 		<meta name="generator" content={Astro.generator} />
 		<meta name="theme-color" content="rgb(250, 227, 221)" />
 
-		<meta name="description" content="Bliss & Innocence — music, releases, artists, and more." />
+		<meta name="description" content={description} />
 
 		<meta property="og:type" content="website" />
-		<meta property="og:title" content="Bliss & Innocence" />
-		<meta property="og:description" content="Bliss & Innocence — music, releases, artists, and more." />
-		<meta property="og:url" content="https://blissandinnocence.art/" />
-		<meta property="og:image" content="https://blissandinnocence.art/B%26I-logo.jpg" />
+		<meta property="og:site_name" content="Bliss & Innocence" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={absolutePageUrl} />
+		<meta property="og:image" content={absoluteImageUrl} />
 
-		<meta name="twitter:card" content="summary" />
-		<meta name="twitter:title" content="Bliss & Innocence" />
-		<meta name="twitter:description" content="Bliss & Innocence — music, releases, artists, and more." />
-		<meta name="twitter:image" content="https://blissandinnocence.art/B%26I-logo.jpg" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={absoluteImageUrl} />
 
 		<script>
 			(() => {
@@ -33,7 +59,8 @@
 				}
 			})();
 		</script>
-		<title>Bliss &amp; Innocence</title>
+
+		<title>{title}</title>
 	</head>
 	<body>
 		<div id="page-loader" aria-live="polite" aria-busy="true">

@@ -74,7 +74,12 @@ const pfpPath = join(process.cwd(), 'public', 'people', 'pfp', `${member.slug}.w
 const hasProfileImage = existsSync(pfpPath);
 ---
 
-<Layout>
+<Layout
+    title={`${member.name} — Bliss & Innocence`}
+    description={(member.roles ?? []).join(' / ') || 'Bliss & Innocence contributor.'}
+    image={hasProfileImage ? pfpSrc : '/B&I-logo.jpg'}
+    url={`/team/${member.slug}/`}
+>
   <main class="profile-page">
 
     <!-- Artist -->
