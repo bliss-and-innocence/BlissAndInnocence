@@ -72,6 +72,9 @@
 					<a href="https://x.com/blissandI" target="_blank" rel="noreferrer" aria-label="X">
 						<img src="/social%20media/x.svg" alt="X" />
 					</a>
+					<a href="https://www.youtube.com/@blissandinnocence2827" target="_blank" rel="noreferrer" aria-label="YouTube">
+						<img src="/social%20media/youtube.svg" alt="YouTube" />
+					</a>
 				</div>
 			</div>
 		</footer>
@@ -379,8 +382,20 @@
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
+
 		filter: grayscale(1) contrast(1.15) brightness(1.1);
-		opacity: 0.95;
+		opacity: 0.55;
+
+		transition:
+			filter 0.25s ease,
+			opacity 0.25s ease,
+			transform 0.25s ease;
+	}
+
+	.footer-socials a:hover img {
+		filter: grayscale(0) contrast(1) brightness(1);
+		opacity: 1;
+		transform: translateY(-3px) scale(1.08);
 	}
 
 	@media (max-width: 760px) {
