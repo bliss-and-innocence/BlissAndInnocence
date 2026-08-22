@@ -1,4 +1,6 @@
 ---
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import Layout from '../../layouts/Layout.astro';
 import { people } from '../../data/people';
 import { releases } from '../../data/releases';
@@ -66,82 +68,203 @@ const socialLinks = (member.links ?? []).filter((link) => {
   const platform = typeof link.platform === 'string' ? link.platform.toLowerCase() : '';
   return !!link.url && !!socialIconMap[platform];
 });
+
+const pfpSrc = `/people/pfp/${member.slug}.webp`;
+const pfpPath = join(process.cwd(), 'public', 'people', 'pfp', `${member.slug}.webp`);
+const hasProfileImage = existsSync(pfpPath);
 ---
 
 <Layout>
   <main class="profile-page">
-    <div class="name-row">
-      <h1>{member.name}</h1>
 
-      {socialLinks.length > 0 ? (
-        <div class="social-icons" aria-label={`${member.name} social links`}>
-          {socialLinks.map((link) => {
-            const platform = typeof link.platform === 'string' ? link.platform.toLowerCase() : 'link';
-            const iconSrc = socialIconMap[platform] ?? '/social media/portfolio.svg';
-            const altText = platform || 'Social link';
+    <!-- Artist -->
+    <section class="artist-section">
+      <div class="profile-header">
+        <div class="profile-copy">
+          <div class="name-row">
+            <h1>{member.name}</h1>
 
-            return (
-              <a href={link.url} target="_blank" rel="noreferrer" aria-label={altText} class="social-icon">
-                <img src={iconSrc} alt={altText} />
-              </a>
-            );
-          })}
+            {socialLinks.length > 0 ? (
+                <div class="social-icons" aria-label={`${member.name} social links`}>
+                  {socialLinks.map((link) => {
+                    const platform =
+                        typeof link.platform === 'string'
+                            ? link.platform.toLowerCase()
+                            : 'link';
+
+                    const iconSrc =
+                        socialIconMap[platform] ?? '/social media/portfolio.svg';
+
+                    const altText = platform || 'Social link';
+
+                    return (
+                        <a
+                            href={link.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={altText}
+                            class="social-icon"
+                        >
+                          <img src={iconSrc} alt={altText} />
+                        </a>
+                    );
+                  })}
+                </div>
+            ) : null}
+          </div>
+
+          <p class="profile-roles">
+            {(member.roles ?? []).join(' / ') || 'No roles listed'}
+          </p>
         </div>
-      ) : null}
-    </div>
 
-    <p><strong>{(member.roles ?? []).join(' / ') || 'No roles listed'}</strong></p>
+        {hasProfileImage ? (
+            <div class="profile-visual">
+              <img
+                  src={pfpSrc}
+                  alt={`${member.name} profile`}
+              />
+            </div>
+        ) : null}
+      </div>
+    </section>
 
-    {contributedReleases && contributedReleases.length > 0 ? (
-      <section class="appears-on">
-        <h2>Appears on</h2>
-        <div class="appear-grid">
-          {contributedReleases.map((rel) => (
-            <a class="appear-card" href={`/releases/${rel.slug}`}>
-              <img src={`/releases/${rel.slug}/cover.jpg`} alt={`${rel.title} cover`} />
-            </a>
-          ))}
-        </div>
-      </section>
+    <!-- Contributions -->
+    {contributedReleases.length > 0 ? (
+        <section class="contributions-section">
+          <div class="contributions-inner">
+            <div class="contributions-heading">
+              <h2>Contributions</h2>
+              <span>{contributedReleases.length} release{contributedReleases.length === 1 ? '' : 's'}</span>
+            </div>
+
+            <div class="appear-grid">
+              {contributedReleases.map((rel) => (
+                  <a
+                      class="appear-card"
+                      href={`/releases/${rel.slug}`}
+                  >
+                    <img
+                        src={`/releases/${rel.slug}/cover.jpg`}
+                        alt={`${rel.title} cover`}
+                    />
+
+                    <div class="appear-card-overlay">
+                      <span>{rel.title}</span>
+                    </div>
+                  </a>
+              ))}
+            </div>
+          </div>
+        </section>
     ) : null}
+
   </main>
 </Layout>
 
 <style>
   .profile-page {
-    max-width: 800px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ─────────────────────────────
+     Artist section
+     ───────────────────────────── */
+
+  .artist-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 4.5rem auto 0;
+    padding: 64px 24px 140px;
+    box-sizing: border-box;
+  }
+
+  .profile-header {
+    width: 100%;
+    max-width: 1120px;
     margin: 0 auto;
-    padding: 32px 24px 64px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .profile-copy {
+    min-width: 0;
   }
 
   .name-row {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 8px;
     flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 14px;
   }
 
   .profile-page h1 {
     margin: 0;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: lighter;
+    line-height: 1;
   }
+
+  .profile-roles {
+    margin: 0;
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: lighter;
+    letter-spacing: 0.04em;
+    opacity: 0.6;
+  }
+
+  .profile-visual {
+    width: 280px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: rgba(17, 17, 17, 0.04);
+  }
+
+  .profile-visual img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ─────────────────────────────
+     Social links
+     ───────────────────────────── */
 
   .social-icons {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-left: 4px;
+    gap: 8px;
   }
 
   .social-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 26px;
-    height: 26px;
-    text-decoration: none;
+
+    width: 24px;
+    height: 24px;
+
     color: inherit;
+    text-decoration: none;
+    opacity: 0.55;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+  }
+
+  .social-icon:hover {
+    opacity: 1;
+    transform: translateY(-2px);
   }
 
   .social-icon img {
@@ -151,35 +274,78 @@ const socialLinks = (member.links ?? []).filter((link) => {
     object-fit: contain;
   }
 
-  .profile-page ul {
-    padding-left: 20px;
+  /* ─────────────────────────────
+     Contributions
+     ───────────────────────────── */
+
+  .contributions-section {
+    width: 100%;
+    background: #000000;
+    color: #ffffff;
+    padding: 72px 24px 96px;
+    margin-bottom: 5rem;
+    box-sizing: border-box;
   }
 
-  .appears-on {
-    margin-top: 28px;
+  .contributions-inner {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
   }
 
-  .appears-on h2 {
-    margin: 0 0 12px;
-    font-size: 1.1rem;
+  .contributions-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin-bottom: 40px;
+  }
+
+  .contributions-heading h2 {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: lighter;
+    font-style: italic;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .contributions-heading span {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.45;
   }
 
   .appear-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 120px));
-    gap: 12px;
-    justify-content: start;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 180px));
+    gap: 28px 20px;
+    justify-content: center;
     align-items: start;
   }
 
   .appear-card {
+    position: relative;
+
     display: block;
-    width: 120px;
+    width: 180px;
     aspect-ratio: 1 / 1;
+
     overflow: hidden;
-    background: rgba(17,17,17,0.04);
-    border: 1px solid rgba(17,17,17,0.06);
+    background: #111111;
+
+    color: #ffffff;
     text-decoration: none;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+  }
+
+  .appear-card:hover {
+    transform: translateY(-4px);
   }
 
   .appear-card img {
@@ -187,15 +353,111 @@ const socialLinks = (member.links ?? []).filter((link) => {
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+    transition:
+        transform 0.4s ease,
+        opacity 0.3s ease;
   }
 
-  @media (max-width: 640px) {
+  .appear-card:hover img {
+    transform: scale(1.04);
+    opacity: 0.72;
+  }
+
+  .appear-card-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: flex-end;
+
+    padding: 16px;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0)
+    );
+
+    opacity: 0;
+
+    transition: opacity 0.25s ease;
+  }
+
+  .appear-card:hover .appear-card-overlay {
+    opacity: 1;
+  }
+
+  .appear-card-overlay span {
+    font-size: 0.8rem;
+    font-weight: lighter;
+    line-height: 1.3;
+  }
+
+  /* ─────────────────────────────
+     Mobile
+     ───────────────────────────── */
+
+  @media (max-width: 720px) {
+    .artist-section {
+      margin-top: 2rem;
+      padding: 32px 16px 100px;
+    }
+
+    .profile-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      gap: 28px;
+      text-align: center;
+    }
+
+    .profile-copy {
+      width: 100%;
+    }
+
+    .name-row {
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .profile-page h1 {
+      font-size: 2rem;
+    }
+
+    .social-icons {
+      justify-content: center;
+    }
+
+    .profile-visual {
+      order: -1;
+      width: min(280px, 80vw);
+    }
+
+    .contributions-section {
+      padding: 56px 16px 72px;
+    }
+
+    .contributions-heading {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
     .appear-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 180px));
+      gap: 20px 16px;
     }
 
     .appear-card {
       width: 100%;
+    }
+
+    .appear-card-overlay {
+      display: none;
     }
   }
 </style>
