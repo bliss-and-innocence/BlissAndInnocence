@@ -1,0 +1,12 @@
+name: mrstormcat
+roles:
+  - Cover Artist
+  - Music Artist
+links:
+  - platform: bandcamp
+    url: https://wokah.bandcamp.com/
+status: core
+
+
+
+

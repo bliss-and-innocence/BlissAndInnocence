@@ -38,7 +38,7 @@ credits:
         url: https://twitter.com/Eyhz6
 
 tracks:
-  - title: ByStarStruck - Astraea's Wrath
+  - title: Astraea's Wrath
     duration: "3:00"
     artists:
       - bystarstruck
@@ -46,7 +46,7 @@ tracks:
       - platform: bandcamp
         url: https://blissandinnocence.bandcamp.com/track/bystarstruck-astraeas-wrath
 
-  - title: Harith Spicy - Tell Me
+  - title: Tell Me
     duration: "3:08"
     artists:
       - harith-spicy
@@ -54,7 +54,7 @@ tracks:
       - platform: bandcamp
         url: https://blissandinnocence.bandcamp.com/track/harith-spicy-tell-me
 
-  - title: DJ Timotei - Metropolis
+  - title: Metropolis
     duration: "3:30"
     artists:
       - dj-timotei
@@ -62,15 +62,15 @@ tracks:
       - platform: bandcamp
         url: https://blissandinnocence.bandcamp.com/track/dj-timotei-metropolis
 
-  - title: WOKAH - Nebula
+  - title: Nebula
     duration: "3:46"
     artists:
-      - wokah
+      - mrstormcat
     links:
       - platform: bandcamp
         url: https://blissandinnocence.bandcamp.com/track/wokah-nebula
 
-  - title: Jienyo - Tears Of The Horizon
+  - title: Tears Of The Horizon
     duration: "2:45"
     artists:
       - jienyo
@@ -78,7 +78,7 @@ tracks:
       - platform: bandcamp
         url: https://blissandinnocence.bandcamp.com/track/jienyo-tears-of-the-horizon
 
-  - title: Eyhz - Hyperspace
+  - title: Hyperspace
     duration: "4:11"
     artists:
       - eyhz
@@ -86,7 +86,7 @@ tracks:
       - platform: bandcamp
         url: https://blissandinnocence.bandcamp.com/track/eyhz-hyperspace
 
-  - title: DJ Xroad - Nice to meet you
+  - title: Nice to meet you
     duration: "4:17"
     artists:
       - dj-xroad
@@ -94,7 +94,7 @@ tracks:
       - platform: bandcamp
         url: https://blissandinnocence.bandcamp.com/track/dj-xroad-nice-to-meet-you
 
-  - title: RachelTypeX - i'll be there
+  - title: i'll be there
     duration: "2:21"
     artists:
       - racheltypex
@@ -102,7 +102,7 @@ tracks:
       - platform: bandcamp
         url: https://blissandinnocence.bandcamp.com/track/racheltypex-ill-be-there
 
-  - title: Valtrax - Feel So Alive
+  - title: Feel So Alive
     duration: "3:40"
     artists:
       - valtrax
@@ -110,15 +110,15 @@ tracks:
       - platform: bandcamp
         url: https://blissandinnocence.bandcamp.com/track/valtrax-feel-so-alive
 
-  - title: Reisen (a.k.a Seppel) - Hunted (Witch)
+  - title: Hunted (Witch)
     duration: "4:25"
     artists:
-      - reisen
+      - Seppel
     links:
       - platform: bandcamp
         url: https://blissandinnocence.bandcamp.com/track/reisen-a-k-a-seppel-hunted-witch
 
-  - title: Eyhz - Full Of Life
+  - title: Full Of Life
     duration: "2:38"
     artists:
       - eyhz
@@ -126,7 +126,7 @@ tracks:
       - platform: bandcamp
         url: https://blissandinnocence.bandcamp.com/track/eyhz-full-of-life
 
-  - title: Jienyo - The Last World Lilium
+  - title: The Last World Lilium
     duration: "2:37"
     artists:
       - jienyo
@@ -134,7 +134,7 @@ tracks:
       - platform: bandcamp
         url: https://blissandinnocence.bandcamp.com/track/jienyo-the-last-world-lilium
 
-  - title: shin(())code - 断Till to lie裂
+  - title: 断Till to lie裂
     duration: "2:18"
     artists:
       - shin-code
