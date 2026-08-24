@@ -77,17 +77,13 @@ const absolutePageUrl = url.startsWith('http')
 					<a href="/core">Team</a>
 					<a href="/contributors">Contributors</a>
 					<a href="/blog">Blog</a>
-					<a href="#" class="nav-submissions" data-submissions-url="https://forms.gle/vkFagNFxKEPcJgko8">Submissions</a>
+					<a href="/submissions">Submissions</a>
 				</div>
 			</nav>
 		</header>
 
 		<div class="page-content">
 			<slot />
-		</div>
-
-		<div id="submission-toast" class="submission-toast" role="status" aria-live="polite">
-			No submissions are currently open!
 		</div>
 
 		<footer class="site-footer">
@@ -122,16 +118,9 @@ const absolutePageUrl = url.startsWith('http')
 
 		<script>
 			const loader = document.getElementById('page-loader');
-			const submissionsLink = document.querySelector('.nav-submissions');
-			const submissionToast = document.getElementById('submission-toast');
-			let warningTimer: number | undefined;
-			let hideTimer: number | undefined;
 
 			const hideLoader = () => {
-				if (!loader) {
-					return;
-				}
-
+				if (!loader) return;
 				loader.classList.add('is-hidden');
 				document.documentElement.classList.add('loader-hidden');
 			};
@@ -150,42 +139,6 @@ const absolutePageUrl = url.startsWith('http')
 				}
 
 				window.setTimeout(hideLoader, fallbackDelay);
-			}
-
-			if (submissionsLink && submissionToast) {
-				const applySubmissionUrl = () => {
-					const url = submissionsLink.getAttribute('data-submissions-url');
-					if (url && url.trim()) {
-						submissionsLink.setAttribute('href', url);
-						submissionsLink.setAttribute('target', '_blank');
-						submissionsLink.setAttribute('rel', 'noopener noreferrer');
-						return true;
-					}
-
-					submissionsLink.setAttribute('href', '#');
-					submissionsLink.removeAttribute('target');
-					submissionsLink.removeAttribute('rel');
-					return false;
-				};
-
-				applySubmissionUrl();
-
-				submissionsLink.addEventListener('click', (event) => {
-					if (!applySubmissionUrl()) {
-						event.preventDefault();
-						submissionToast.classList.remove('is-warning');
-						void submissionToast.offsetWidth;
-						submissionToast.classList.add('is-visible', 'is-warning');
-						window.clearTimeout(warningTimer);
-						window.clearTimeout(hideTimer);
-						warningTimer = window.setTimeout(() => {
-							submissionToast.classList.remove('is-warning');
-						}, 150);
-						hideTimer = window.setTimeout(() => {
-							submissionToast.classList.remove('is-visible', 'is-warning');
-						}, 2200);
-					}
-				});
 			}
 		</script>
 	</body>
@@ -314,50 +267,6 @@ const absolutePageUrl = url.startsWith('http')
 
 	.nav-submissions {
 		cursor: pointer;
-	}
-
-	.submission-toast {
-		position: fixed;
-		right: 20px;
-		bottom: 20px;
-		padding: 10px 14px;
-		background: rgba(17, 17, 17, 0.96);
-		color: #ffffff;
-		font-size: 0.8rem;
-		letter-spacing: 0.04em;
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		opacity: 0;
-		visibility: hidden;
-		transform: translateX(140%) translateY(8px);
-		transition: opacity 0.24s ease, transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.24s ease, background-color 0.18s ease, border-color 0.18s ease;
-		z-index: 1000;
-	}
-
-	.submission-toast.is-visible {
-		opacity: 1;
-		visibility: visible;
-		transform: translateX(0) translateY(0);
-	}
-
-	.submission-toast.is-warning {
-		background: rgba(182, 52, 52, 0.98);
-		border-color: rgba(255, 203, 203, 0.7);
-		animation: toast-shake 0.22s ease-in-out 2;
-	}
-
-	@keyframes toast-shake {
-		0%, 100% {
-			transform: translateX(0) translateY(0);
-		}
-		25% {
-			transform: translateX(0) translateY(-4px);
-		}
-		50% {
-			transform: translateX(0) translateY(4px);
-		}
-		75% {
-			transform: translateX(0) translateY(-2px);
-		}
 	}
 
 	.site-footer {
