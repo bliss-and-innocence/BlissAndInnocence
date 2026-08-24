@@ -40,7 +40,7 @@ export function parseInlineMarkdown(text: string): string {
       // Replace [text](url) with <a> tags; escape everything else
       const parts: string[] = [];
       let cursor = 0;
-      const linkPattern = /\[([^][]+)]\(([^)]+)\)/g;
+      const linkPattern = new RegExp('\\[([^\\[\\]]+)\\]\\(([^)]+)\\)', 'g');
       let match: RegExpExecArray | null;
 
       while ((match = linkPattern.exec(line)) !== null) {
