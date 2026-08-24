@@ -21,6 +21,48 @@ const slugify = (value: string) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '') || 'blog-post';
 
+const escapeHtml = (str: string) =>
+  str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+
+/**
+ * Converts a plain-text blog message into safe HTML.
+ * Supports [link text](url) for inline hyperlinks.
+ * All other content is HTML-escaped. Line breaks are preserved.
+ */
+export function parseInlineMarkdown(text: string): string {
+  return text
+    .split('\n')
+    .map((line) => {
+      // Replace [text](url) with <a> tags; escape everything else
+      const parts: string[] = [];
+      let cursor = 0;
+      const linkPattern = /\[([^][]+)]\(([^)]+)\)/g;
+      let match: RegExpExecArray | null;
+
+      while ((match = linkPattern.exec(line)) !== null) {
+        // Escaped text before this link
+        parts.push(escapeHtml(line.slice(cursor, match.index)));
+        const label = escapeHtml(match[1]);
+        // Only allow relative paths and http/https URLs
+        const rawUrl = match[2].trim();
+        const safeUrl = /^(https?:\/\/|\/)/i.test(rawUrl) ? escapeHtml(rawUrl) : '#';
+        const external = safeUrl.startsWith('http');
+        parts.push(
+          `<a href="${safeUrl}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${label}</a>`
+        );
+        cursor = match.index + match[0].length;
+      }
+
+      parts.push(escapeHtml(line.slice(cursor)));
+      return parts.join('');
+    })
+    .join('<br />');
+}
+
 export function extractBlogPostsFromDirectory(directoryPath = blogDir): BlogPost[] {
   try {
     const files = readdirSync(directoryPath, { withFileTypes: true })
