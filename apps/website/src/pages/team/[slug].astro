@@ -72,6 +72,15 @@ const socialLinks = (member.links ?? []).filter((link) => {
 const pfpSrc = `/people/pfp/${member.slug}.webp`;
 const pfpPath = join(process.cwd(), 'public', 'people', 'pfp', `${member.slug}.webp`);
 const hasProfileImage = existsSync(pfpPath);
+const siteUrl = 'https://blissandinnocence.art';
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: member.name,
+  url: `${siteUrl}/team/${member.slug}/`,
+  image: hasProfileImage ? `${siteUrl}${pfpSrc}` : `${siteUrl}/B&I-logo.jpg`,
+  jobTitle: (member.roles ?? []).join(' / '),
+};
 ---
 
 <Layout
@@ -79,6 +88,7 @@ const hasProfileImage = existsSync(pfpPath);
     description={(member.roles ?? []).join(' / ') || 'Bliss & Innocence contributor.'}
     image={hasProfileImage ? pfpSrc : '/B&I-logo.jpg'}
     url={`/team/${member.slug}/`}
+    schema={personSchema}
 >
   <main class="profile-page">
 

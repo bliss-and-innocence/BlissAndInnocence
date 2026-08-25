@@ -4,6 +4,8 @@ interface Props {
 	description?: string;
 	image?: string;
 	url?: string;
+	noindex?: boolean;
+	schema?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
 const {
@@ -11,6 +13,8 @@ const {
 	description = 'Bliss & Innocence — music, releases, artists, and more.',
 	image = '/B&I-logo.jpg',
 	url = '/',
+	noindex = false,
+	schema,
 } = Astro.props;
 
 const siteUrl = 'https://blissandinnocence.art';
@@ -22,6 +26,16 @@ const absoluteImageUrl = image.startsWith('http')
 const absolutePageUrl = url.startsWith('http')
 	? url
 	: `${siteUrl}${url}`;
+
+const robotsContent = noindex
+	? 'noindex, nofollow'
+	: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+
+const schemaItems = Array.isArray(schema)
+	? schema
+	: schema
+		? [schema]
+		: [];
 ---
 <!doctype html>
 <html lang="en">
@@ -31,6 +45,8 @@ const absolutePageUrl = url.startsWith('http')
 		<link rel="icon" type="image/jpeg" href="/B&I-logo.jpg" sizes="any" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="theme-color" content="rgb(250, 227, 221)" />
+		<meta name="robots" content={robotsContent} />
+		<link rel="canonical" href={absolutePageUrl} />
 
 		<meta name="description" content={description} />
 
@@ -41,10 +57,16 @@ const absolutePageUrl = url.startsWith('http')
 		<meta property="og:url" content={absolutePageUrl} />
 		<meta property="og:image" content={absoluteImageUrl} />
 
-		<meta name="twitter:card" content="summary" />
+		<meta property="og:image:alt" content={title} />
+
+		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={absoluteImageUrl} />
+
+		{schemaItems.map((entry) => (
+			<script type="application/ld+json" set:html={JSON.stringify(entry)} />
+		))}
 
 		<script>
 			(() => {

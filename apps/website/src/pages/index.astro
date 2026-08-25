@@ -4,9 +4,37 @@ import { releases } from '../data/releases';
 
 const biReleases = releases.filter((r) => r.releaseTag !== 'xenodigitrecords');
 const xenoReleases = releases.filter((r) => r.releaseTag === 'xenodigitrecords');
+const siteUrl = 'https://blissandinnocence.art';
+
+const homepageSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Bliss & Innocence',
+    url: siteUrl,
+    logo: `${siteUrl}/B&I-logo.jpg`,
+    sameAs: [
+      'https://blissandinnocence.bandcamp.com/',
+      'https://x.com/blissandI',
+      'https://www.youtube.com/@blissandinnocence2827',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Bliss & Innocence',
+    url: siteUrl,
+  },
+];
 ---
 
-<Layout>
+<Layout
+  title="Bliss and Innocence Discography"
+  description="Bliss & Innocence releases, Xenodigit Records releases, artists, and latest label music."
+  image="/B&I-logo.jpg"
+  url="/"
+  schema={homepageSchema}
+>
   <main class="releases-page">
     <div class="releases-content">
 

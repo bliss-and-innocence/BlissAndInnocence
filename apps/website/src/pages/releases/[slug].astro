@@ -91,6 +91,20 @@ const releaseLinks = (release.links ?? []).filter((link) => {
 
   return !!link.url && !!releaseIconMap[platform];
 });
+
+const siteUrl = 'https://blissandinnocence.art';
+const releaseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MusicAlbum',
+  name: release.title,
+  url: `${siteUrl}/releases/${release.slug}/`,
+  image: `${siteUrl}/releases/${release.slug}/cover.jpg`,
+  datePublished: release.releaseDate,
+  byArtist: {
+    '@type': 'MusicGroup',
+    name: release.releaseTag === 'xenodigitrecords' ? 'Xenodigit Records' : 'Bliss & Innocence',
+  },
+};
 ---
 
 <Layout
@@ -98,6 +112,7 @@ const releaseLinks = (release.links ?? []).filter((link) => {
     description={release.description ?? `Listen to ${release.title} from Bliss & Innocence.`}
     image={`/releases/${release.slug}/cover.jpg`}
     url={`/releases/${release.slug}/`}
+    schema={releaseSchema}
 >
   <main class="release-page">
 
