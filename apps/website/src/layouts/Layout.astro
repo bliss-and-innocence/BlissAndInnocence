@@ -187,6 +187,35 @@ const schemaItems = Array.isArray(schema)
 				window.setTimeout(hideLoader, fallbackDelay);
 			}
 		</script>
+
+		<script>
+			// Fade in lazy-loaded images as they load
+			const setupLazyFade = () => {
+				const lazyImages = document.querySelectorAll<HTMLImageElement>('img[loading="lazy"]');
+				
+				lazyImages.forEach((img) => {
+					const loadHandler = () => {
+						img.classList.add('is-loaded');
+					};
+					
+					if (img.complete) {
+						// Image already loaded (cached)
+						img.classList.add('is-loaded');
+					} else {
+						// Image is loading
+						img.addEventListener('load', loadHandler, { once: true });
+						img.addEventListener('error', loadHandler, { once: true });
+					}
+				});
+			};
+			
+			// Run after DOM is ready
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', setupLazyFade);
+			} else {
+				setupLazyFade();
+			}
+		</script>
 	</body>
 </html>
 
@@ -459,5 +488,14 @@ const schemaItems = Array.isArray(schema)
 			opacity: 0;
 			transform: scale(1.7);
 		}
+	}
+
+	:global(img[loading="lazy"]) {
+		opacity: 0;
+		transition: opacity 1s ease;
+	}
+
+	:global(img[loading="lazy"].is-loaded) {
+		opacity: 1;
 	}
 </style>
