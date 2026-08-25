@@ -1,11 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { releases } from '../data/releases';
+
+const biReleases = releases.filter((r) => r.releaseTag !== 'xenodigitrecords');
+const xenoReleases = releases.filter((r) => r.releaseTag === 'xenodigitrecords');
 ---
 
 <Layout>
   <main class="releases-page">
     <div class="releases-content">
+
       <h1>
         <span class="title-decoration">//// </span>
         Bliss and Innocence Discography
@@ -13,7 +17,7 @@ import { releases } from '../data/releases';
       </h1>
 
       <div class="release-grid">
-        {releases.map((release) => (
+        {biReleases.map((release) => (
             <a class="release-card" href={`/releases/${release.slug}`}>
               <div class="card-image-wrap">
                 <img
@@ -25,8 +29,35 @@ import { releases } from '../data/releases';
             </a>
         ))}
       </div>
+
     </div>
   </main>
+
+  {xenoReleases.length > 0 ? (
+    <section class="xeno-section">
+      <div class="xeno-content">
+        <h2>
+          <span class="title-decoration">//// </span>
+          Xenodigit Records Discography
+          <span class="title-decoration"> ////</span>
+        </h2>
+
+        <div class="release-grid xeno-grid">
+          {xenoReleases.map((release) => (
+              <a class="release-card" href={`/releases/${release.slug}`}>
+                <div class="card-image-wrap">
+                  <img
+                      class="release-cover"
+                      src={`/releases/${release.slug}/cover.jpg`}
+                      alt={`${release.title} cover artwork`}
+                  />
+                </div>
+              </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  ) : null}
 </Layout>
 
 <style>
@@ -127,6 +158,63 @@ import { releases } from '../data/releases';
     .release-card {
       width: 100%;
       max-width: 360px;
+    }
+  }
+
+  /* --------------------------------
+     Xenodigit Records section
+  -------------------------------- */
+
+  .xeno-section {
+    width: 100%;
+    background: #000000;
+    color: #ffffff;
+    padding: calc(4.5rem + 64px) 24px 96px;
+    box-sizing: border-box;
+  }
+
+  .xeno-content {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  .xeno-content h2 {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: lighter;
+  }
+
+  .xeno-grid {
+    margin-top: 120px;
+  }
+
+  .xeno-section .release-card {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .xeno-section .release-card:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  @media (max-width: 640px) {
+    .xeno-section {
+      padding: 32px 16px 64px;
+    }
+
+    .xeno-content h2 {
+      font-size: 1.25rem;
+      white-space: nowrap;
+    }
+
+    .xeno-grid {
+      grid-template-columns: minmax(0, 360px);
+      justify-content: center;
+      margin-top: 100px;
     }
   }
 </style>

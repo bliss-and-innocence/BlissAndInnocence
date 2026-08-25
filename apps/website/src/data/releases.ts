@@ -30,6 +30,7 @@ export type ReleaseRecord = {
   releaseDate?: string;
   catalogNumber?: string;
   description?: string;
+  releaseTag?: string;
   links?: ReleaseLink[];
   credits?: ReleaseCredit[];
   tracks?: ReleaseTrack[];
