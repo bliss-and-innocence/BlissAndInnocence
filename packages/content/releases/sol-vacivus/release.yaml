@@ -73,7 +73,7 @@ tracks:
       - dokusou-amane
     links:
       - platform: bandcamp
-        url: https://blissandinnocence.bandcamp.com/track/-2
+        url: https://blissandinnocence.bandcamp.com/track/-
 
   - title: 慈悲死神
     duration: "3:09"
@@ -81,7 +81,7 @@ tracks:
       - dokusou-amane
     links:
       - platform: bandcamp
-        url: https://blissandinnocence.bandcamp.com/track/-3
+        url: https://blissandinnocence.bandcamp.com/track/--2
 
   - title: Tears of ‘Abnormality’
     duration: "4:10"
@@ -106,7 +106,7 @@ tracks:
       - dokusou-amane
     links:
       - platform: bandcamp
-        url: https://blissandinnocence.bandcamp.com/track/-4
+        url: https://blissandinnocence.bandcamp.com/track/--3
 
   - title: HEAVENFALL
     duration: "2:44"
