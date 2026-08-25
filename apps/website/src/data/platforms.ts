@@ -4,7 +4,7 @@ export const platformLabels = {
   carrd: 'Carrd',
   linktree: 'Linktree',
   bandcamp: 'Bandcamp',
-  vegn: 'VEGN',
+  vgen: 'VGen',
   weebly: 'Weebly',
   bio: 'Bio',
   github: 'GitHub',
@@ -13,25 +13,16 @@ export const platformLabels = {
 
 export type PlatformKey = keyof typeof platformLabels;
 
+const platformAliases: Record<string, PlatformKey> = {
+  vegn: 'vgen',
+};
+
 export function normalizePlatformKey(platform?: string): PlatformKey | string {
   if (!platform) {
     return 'portfolio';
   }
 
-  const normalized = platform.trim().toLowerCase();
+  const normalizedRaw = platform.trim().toLowerCase();
+  const normalized = platformAliases[normalizedRaw] ?? normalizedRaw;
   return normalized in platformLabels ? (normalized as PlatformKey) : platform;
-}
-
-export function getPlatformLabel(platform?: string): string {
-  if (!platform) {
-    return 'Link';
-  }
-
-  const normalized = normalizePlatformKey(platform);
-
-  if (typeof normalized === 'string' && normalized in platformLabels) {
-    return platformLabels[normalized as PlatformKey];
-  }
-
-  return platform.replace(/[-_]+/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
 }
