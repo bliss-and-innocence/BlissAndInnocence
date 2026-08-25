@@ -5,5 +5,8 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://blissandinnocence.art',
   base: '/',
+  build: {
+    inlineStylesheets: 'always',
+  },
   integrations: [sitemap()],
 });

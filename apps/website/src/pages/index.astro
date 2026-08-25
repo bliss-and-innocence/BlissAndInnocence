@@ -4,6 +4,7 @@ import { releases } from '../data/releases';
 
 const biReleases = releases.filter((r) => r.releaseTag !== 'xenodigitrecords');
 const xenoReleases = releases.filter((r) => r.releaseTag === 'xenodigitrecords');
+const primaryReleaseCover = biReleases[0] ? `/releases/${biReleases[0].slug}/cover.webp` : undefined;
 const siteUrl = 'https://blissandinnocence.art';
 
 const homepageSchema = [
@@ -32,6 +33,7 @@ const homepageSchema = [
   title="Bliss and Innocence Discography"
   description="Bliss and Innocence releases, Xenodigit Records releases, artists, and latest label music."
   image="/B&I-logo.jpg"
+  preloadImage={primaryReleaseCover}
   url="/"
   schema={homepageSchema}
 >
@@ -45,7 +47,7 @@ const homepageSchema = [
       </h1>
 
       <div class="release-grid">
-        {biReleases.map((release) => (
+        {biReleases.map((release, index) => (
             <a class="release-card" href={`/releases/${release.slug}`}>
               <div class="card-image-wrap">
                 <img
@@ -54,7 +56,8 @@ const homepageSchema = [
                     alt={`${release.title} cover artwork`}
                     width="420"
                     height="420"
-                    loading="lazy"
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    fetchpriority={index === 0 ? 'high' : 'auto'}
                     decoding="async"
                 />
               </div>

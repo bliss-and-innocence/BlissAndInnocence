@@ -3,6 +3,7 @@ interface Props {
 	title?: string;
 	description?: string;
 	image?: string;
+	preloadImage?: string;
 	url?: string;
 	noindex?: boolean;
 	schema?: Record<string, unknown> | Array<Record<string, unknown>>;
@@ -12,6 +13,7 @@ const {
 	title = 'Bliss and Innocence',
 	description = 'Bliss and Innocence — music, releases, artists, and more.',
 	image = '/B&I-logo.jpg',
+	preloadImage,
 	url = '/',
 	noindex = false,
 	schema,
@@ -47,6 +49,7 @@ const schemaItems = Array.isArray(schema)
 		<meta name="theme-color" content="rgb(250, 227, 221)" />
 		<meta name="robots" content={robotsContent} />
 		<link rel="canonical" href={absolutePageUrl} />
+		{preloadImage ? <link rel="preload" as="image" href={preloadImage} /> : null}
 
 		<meta name="description" content={description} />
 
