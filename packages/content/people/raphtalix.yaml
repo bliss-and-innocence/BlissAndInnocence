@@ -5,6 +5,6 @@ roles:
 links:
     - platform: x
       url: https://x.com/raphtalix
-    - platform: bio
+    - platform: portfolio
       url: https://bio.link/raphtalix
 status: contributor

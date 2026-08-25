@@ -2,6 +2,6 @@ name: Riley // BEACHGRAVE
 roles:
   - Cover Artist
 links:
-  - name: x
+  - platform: x
     url: https://x.com/gravehead666
 status: contributor

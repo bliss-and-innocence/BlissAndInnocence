@@ -1,7 +1,7 @@
-import { readdirSync, readFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import {readdirSync, readFileSync} from 'node:fs';
+import {join, resolve} from 'node:path';
 import YAML from 'yaml';
-import { normalizePlatformKey, type PlatformKey } from './platforms';
+import {normalizePlatformKey, type PlatformKey} from './platforms';
 
 export type PersonLink = {
   platform?: PlatformKey | string;
@@ -24,13 +24,11 @@ const projectRoot = resolve(process.cwd(), '..', '..');
 const peopleDir = join(projectRoot, 'packages', 'content', 'people');
 
 const slugify = (value: string) => {
-  const normalized = value
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-
-  return normalized;
+    return value
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
 };
 
 export function extractPeopleFromDirectory(directoryPath = peopleDir): PersonRecord[] {
@@ -69,8 +67,15 @@ export function extractPeopleFromDirectory(directoryPath = peopleDir): PersonRec
               }
 
               const nextLink = { ...link } as PersonLink;
-              if (typeof nextLink.platform === 'string') {
-                nextLink.platform = normalizePlatformKey(nextLink.platform);
+              const legacyPlatform =
+                typeof (link as { name?: unknown }).name === 'string'
+                  ? (link as { name: string }).name
+                  : undefined;
+              const platformValue =
+                typeof nextLink.platform === 'string' ? nextLink.platform : legacyPlatform;
+
+              if (typeof platformValue === 'string') {
+                nextLink.platform = normalizePlatformKey(platformValue);
               }
               return nextLink;
             })
