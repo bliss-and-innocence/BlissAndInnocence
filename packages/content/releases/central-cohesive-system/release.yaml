@@ -1,0 +1,44 @@
+title: Central Cohesive System
+slug: central-cohesive-system
+releaseDate: 2026-06-22
+releaseTag: xenodigitrecords
+catalogNumber: XDR-0003
+
+links:
+  - platform: bandcamp
+    url: https://xenodigitrecords.bandcamp.com/album/central-cohesive-system
+
+description: |
+  Ep produced whilst learning how to use Ableton instead of FL studio
+
+  Genre: Hypnotic Techno
+
+credits:
+  - role: Artwork
+    name: isobarikz
+    links: []
+
+tracks:
+  - title: Central Cohesive System
+    duration: "5:05"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://xenodigitrecords.bandcamp.com/track/central-cohesive-system
+
+  - title: Disconnect Yourself
+    duration: "4:44"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://xenodigitrecords.bandcamp.com/track/disconnect-yourself
+
+  - title: Life In Motion
+    duration: "6:03"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://xenodigitrecords.bandcamp.com/track/life-in-motion

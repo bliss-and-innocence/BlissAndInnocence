@@ -1,0 +1,47 @@
+title: Lack Of Sight
+slug: lack-of-sight
+releaseDate: 2026-04-30
+releaseTag: xenodigitrecords
+catalogNumber: XDR-0001
+
+links:
+  - platform: bandcamp
+    url: https://xenodigitrecords.bandcamp.com/album/lack-of-sight
+
+description: |
+  First release on the Xenodigit Records label will be Aprils monthly album by the artist Isobarikz
+
+credits: []
+
+tracks:
+  - title: Lack Of Sight (Original Mix)
+    duration: "5:06"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://xenodigitrecords.bandcamp.com/track/lack-of-sight-original-mix
+
+  - title: At A Premium (Original Mix)
+    duration: "5:01"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://xenodigitrecords.bandcamp.com/track/at-a-premium-original-mix
+
+  - title: Rest Space (Original Mix)
+    duration: "4:11"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://xenodigitrecords.bandcamp.com/track/rest-space-original-mix
+
+  - title: Lack Of Sight (Partial Necrosis Remix)
+    duration: "4:36"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://xenodigitrecords.bandcamp.com/track/lack-of-sight-partial-necrosis-remix

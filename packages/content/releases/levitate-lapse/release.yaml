@@ -1,0 +1,38 @@
+title: levitate+/lapse-
+slug: levitate-lapse
+releaseDate: 2026-05-04
+releaseTag: xenodigitrecords
+catalogNumber: XDR-0002
+
+links:
+  - platform: bandcamp
+    url: https://xenodigitrecords.bandcamp.com/album/levitate-lapse
+
+description: |
+  "two sides of a concept, taken in extremes and in minimum."
+  
+  i made levitate+ / lapse- as a way to explore how i make techno, both in a most melodic and destructive sense
+
+  Genre: Track 1: Melodic Techno, Track 2: Schranz
+
+credits:
+  - role: Artwork
+    name: rejd
+    links: []
+
+tracks:
+  - title: levitate+
+    duration: "8:50"
+    artists:
+      - rejd
+    links:
+      - platform: bandcamp
+        url: https://xenodigitrecords.bandcamp.com/track/levitate
+
+  - title: lapse-
+    duration: "5:06"
+    artists:
+      - rejd
+    links:
+      - platform: bandcamp
+        url: https://xenodigitrecords.bandcamp.com/track/lapse
