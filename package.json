@@ -1,7 +1,7 @@
 {
   "name": "blissandinnocence",
   "version": "1.0.0",
-  "description": "portfolio website for music label bliss&innocence",
+  "description": "portfolio website for music label bliss and innocence",
   "main": "index.js",
   "private": true,
   "workspaces": [

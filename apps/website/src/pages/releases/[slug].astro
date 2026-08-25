@@ -102,14 +102,14 @@ const releaseSchema = {
   datePublished: release.releaseDate,
   byArtist: {
     '@type': 'MusicGroup',
-    name: release.releaseTag === 'xenodigitrecords' ? 'Xenodigit Records' : 'Bliss & Innocence',
+    name: release.releaseTag === 'xenodigitrecords' ? 'Xenodigit Records' : 'Bliss and Innocence',
   },
 };
 ---
 
 <Layout
-    title={`${release.title} — Bliss & Innocence`}
-    description={release.description ?? `Listen to ${release.title} from Bliss & Innocence.`}
+    title={`${release.title} — Bliss and Innocence`}
+    description={release.description ?? `Listen to ${release.title} from Bliss and Innocence.`}
    image={`/releases/${release.slug}/cover.webp`}
     url={`/releases/${release.slug}/`}
     schema={releaseSchema}
