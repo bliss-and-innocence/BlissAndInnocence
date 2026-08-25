@@ -50,8 +50,12 @@ const homepageSchema = [
               <div class="card-image-wrap">
                 <img
                     class="release-cover"
-                    src={`/releases/${release.slug}/cover.jpg`}
+                    src={`/releases/${release.slug}/cover.webp`}
                     alt={`${release.title} cover artwork`}
+                    width="420"
+                    height="420"
+                    loading="lazy"
+                    decoding="async"
                 />
               </div>
             </a>
@@ -76,8 +80,12 @@ const homepageSchema = [
                 <div class="card-image-wrap">
                   <img
                       class="release-cover"
-                      src={`/releases/${release.slug}/cover.jpg`}
+                      src={`/releases/${release.slug}/cover.webp`}
                       alt={`${release.title} cover artwork`}
+                      width="420"
+                      height="420"
+                      loading="lazy"
+                      decoding="async"
                   />
                 </div>
               </a>

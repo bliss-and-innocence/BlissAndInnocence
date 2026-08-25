@@ -98,7 +98,7 @@ const releaseSchema = {
   '@type': 'MusicAlbum',
   name: release.title,
   url: `${siteUrl}/releases/${release.slug}/`,
-  image: `${siteUrl}/releases/${release.slug}/cover.jpg`,
+  image: `${siteUrl}/releases/${release.slug}/cover.webp`,
   datePublished: release.releaseDate,
   byArtist: {
     '@type': 'MusicGroup',
@@ -110,7 +110,7 @@ const releaseSchema = {
 <Layout
     title={`${release.title} — Bliss & Innocence`}
     description={release.description ?? `Listen to ${release.title} from Bliss & Innocence.`}
-    image={`/releases/${release.slug}/cover.jpg`}
+   image={`/releases/${release.slug}/cover.webp`}
     url={`/releases/${release.slug}/`}
     schema={releaseSchema}
 >
@@ -142,7 +142,14 @@ const releaseSchema = {
                           rel="noreferrer"
                           aria-label={key}
                       >
-                        <img src={icon} alt={key} />
+                        <img
+                            src={icon}
+                            alt={key}
+                            width="24"
+                            height="24"
+                            loading="lazy"
+                            decoding="async"
+                        />
                       </a>
                   );
                 })}
@@ -269,9 +276,13 @@ const releaseSchema = {
             <div class="cover-panel">
               <div class="cover-image-container">
                 <img
-                    src={`/releases/${release.slug}/cover.jpg`}
+                    src={`/releases/${release.slug}/cover.webp`}
                     alt={`${release.title} cover artwork`}
                     class="release-cover"
+                    width="640"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
                 />
 
                 <div class="cover-overlay">
@@ -297,9 +308,13 @@ const releaseSchema = {
 
       <div class="cover-modal-content">
         <img
-            src={`/releases/${release.slug}/cover.jpg`}
+            src={`/releases/${release.slug}/cover.webp`}
             alt={`${release.title} cover artwork preview`}
             class="cover-modal-image"
+            width="900"
+            height="900"
+            loading="eager"
+            decoding="async"
         />
       </div>
     </div>

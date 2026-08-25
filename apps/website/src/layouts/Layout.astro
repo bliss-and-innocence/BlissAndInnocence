@@ -86,13 +86,29 @@ const schemaItems = Array.isArray(schema)
 	</head>
 	<body>
 		<div id="page-loader" aria-live="polite" aria-busy="true">
-			<img src="/B&I-logo.jpg" alt="Bliss &amp; Innocence logo" class="loader-logo" />
+			<img
+				src="/B&I-logo.jpg"
+				alt="Bliss &amp; Innocence logo"
+				class="loader-logo"
+				width="240"
+				height="240"
+				fetchpriority="high"
+				decoding="async"
+			/>
 		</div>
 
 		<header class="site-header">
 			<nav class="site-nav" aria-label="Main navigation">
 				<a href="/" class="brand" aria-label="Bliss and Innocence home">
-					<img src="/B&I-logo.jpg" alt="Bliss &amp; Innocence logo" class="brand-logo" />
+					<img
+						src="/B&I-logo.jpg"
+						alt="Bliss &amp; Innocence logo"
+						class="brand-logo"
+						width="84"
+						height="84"
+						loading="eager"
+						decoding="async"
+					/>
 				</a>
 				<div class="nav-links">
 					<a href="/">Releases</a>
@@ -111,7 +127,15 @@ const schemaItems = Array.isArray(schema)
 		<footer class="site-footer">
 			<div class="footer-inner">
 				<div class="footer-brand">
-					<img src="/B&I-logo.jpg" alt="Bliss &amp; Innocence logo" class="footer-logo" />
+					<img
+						src="/B&I-logo.jpg"
+						alt="Bliss &amp; Innocence logo"
+						class="footer-logo"
+						width="80"
+						height="80"
+						loading="lazy"
+						decoding="async"
+					/>
 				</div>
 
 				<nav class="footer-nav" aria-label="Footer navigation">

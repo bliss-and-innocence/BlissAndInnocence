@@ -120,7 +120,14 @@ const personSchema = {
                             aria-label={altText}
                             class="social-icon"
                         >
-                          <img src={iconSrc} alt={altText} />
+                          <img
+                              src={iconSrc}
+                              alt={altText}
+                              width="24"
+                              height="24"
+                              loading="lazy"
+                              decoding="async"
+                          />
                         </a>
                     );
                   })}
@@ -138,6 +145,10 @@ const personSchema = {
               <img
                   src={pfpSrc}
                   alt={`${member.name} profile`}
+                  width="280"
+                  height="280"
+                  loading="lazy"
+                  decoding="async"
               />
             </div>
         ) : null}
@@ -160,8 +171,12 @@ const personSchema = {
                       href={`/releases/${rel.slug}`}
                   >
                     <img
-                        src={`/releases/${rel.slug}/cover.jpg`}
+                        src={`/releases/${rel.slug}/cover.webp`}
                         alt={`${rel.title} cover`}
+                        width="220"
+                        height="220"
+                        loading="lazy"
+                        decoding="async"
                     />
 
                     <div class="appear-card-overlay">
