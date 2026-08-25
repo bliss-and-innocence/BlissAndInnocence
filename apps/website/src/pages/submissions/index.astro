@@ -1,11 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { activeSubmissions, archivedSubmissions } from '../../data/submissions';
+
+const submissionsMetaDescription = activeSubmissions.length > 0
+  ? 'Submissions are currently open at Bliss & Innocence.'
+  : 'Submissions are currently closed at Bliss & Innocence.';
 ---
 
 <Layout
   title="Submissions — Bliss & Innocence"
-  description="Open and past album submission calls for Bliss & Innocence."
+  description={submissionsMetaDescription}
   image="/B&I-logo.jpg"
   url="/submissions/"
 >
