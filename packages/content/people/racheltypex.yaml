@@ -4,4 +4,6 @@ roles:
 links:
     - platform: bandcamp
       url: https://racheltypex.bandcamp.com/
+    - platform: subvert
+      url: https://www.subvert.fm/racheltypex
 status: core
