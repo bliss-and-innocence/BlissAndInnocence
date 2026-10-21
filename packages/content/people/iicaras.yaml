@@ -1,10 +1,16 @@
 name: iicaras
 slug: iicaras
 roles:
-  - Graphic Designer
   - Music Artist
+  - Graphic Designer
   - Mathematician
 links:
   - platform: x
     url: https://x.com/_iicaras
+  - platform: bandcamp
+    url: https://iicaras.bandcamp.com/
+  - platform: youtube
+    url: https://www.youtube.com/@iicaras
+  - platform: portfolio
+    url: https://iicaras.github.io/
 status: core
