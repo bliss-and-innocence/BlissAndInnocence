@@ -1,0 +1,70 @@
+title: Hadal
+slug: hadal
+releaseDate: 2025-11-13
+releaseTag: xenodigitrecords
+catalogNumber: XDR-0004
+
+links:
+  - platform: bandcamp
+    url: https://xenodigitrecords.bandcamp.com/album/hadal
+  - platform: subvert
+    url: https://www.subvert.fm/blissandinnocence/hadal
+
+description: |
+  Dive into the dark depths of the hadal-zone! We have come together to produce an dark techno compilation, featuring 6 tracks.
+  Descend with us for our first Themed Compilation on the label.
+
+credits:
+  - role: Cover Art
+    name: rejd
+  - role: Mastering
+    name: eyhz
+
+tracks:
+  - title: darkness in your eyes
+    duration: "4:33"
+    artists:
+      - seppel
+    links:
+      - platform: bandcamp
+        url: https://xenodigitrecords.bandcamp.com/track/darkness-in-your-eyes
+
+  - title: Thamnosophis
+    duration: "8:24"
+    artists:
+      - rejd
+    links:
+      - platform: bandcamp
+        url: https://xenodigitrecords.bandcamp.com/track/thamnosophis
+
+  - title: YOURFACE
+    duration: "4:08"
+    artists:
+      - mouthdoll
+    links:
+      - platform: bandcamp
+        url: https://xenodigitrecords.bandcamp.com/track/yourface
+
+  - title: ground skull
+    duration: "6:48"
+    artists:
+      - breakcore for migraines
+    links:
+      - platform: bandcamp
+        url: https://xenodigitrecords.bandcamp.com/track/ground-skull
+
+  - title: Sentinel Savior
+    duration: "4:20"
+    artists:
+      - king-demitri
+    links:
+      - platform: bandcamp
+        url: https://xenodigitrecords.bandcamp.com/track/sentinel-savior
+
+  - title: Show Me.
+    duration: "4:37"
+    artists:
+      - isobarikz
+    links:
+      - platform: bandcamp
+        url: https://xenodigitrecords.bandcamp.com/track/show-me
